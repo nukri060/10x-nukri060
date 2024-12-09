@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="participants-and-weekly-activity">
+        <!-- List of Participants -->
+        <table role="table" aria-labelledby="participants-table">
+            <caption id="participants-table">
+                List of Participants
+            </caption>
+
+            <thead>
+                <tr>
+                    <th id="name-header">Name</th>
+                    <th id="age-header">Age</th>
+                    <th id="email-header">Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td headers="name-header">John Doe</td>
+                    <td headers="age-header">28</td>
+                    <td headers="email-header">johndoe@example.com</td>
+                </tr>
+                <tr>
+                    <td headers="name-header">Jane Smith</td>
+                    <td headers="age-header">34</td>
+                    <td headers="email-header">janesmith@example.com</td>
+                </tr>
+                <tr>
+                    <td headers="name-header">Emily Brown</td>
+                    <td headers="age-header">22</td>
+                    <td headers="email-header">emilybrown@example.com</td>
+                </tr>
+                <tr>
+                    <td headers="name-header">Michael Johnson</td>
+                    <td headers="age-header">40</td>
+                    <td headers="email-header">michaeljohnson@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Weekly Activity Schedule table -->
+        <table role="grid" aria-labelledby="schedule-table">
+            <caption id="schedule-table">
+                Weekly Activity Schedule
+            </caption>
+
+            <thead>
+                <tr>
+                    <th id="skipped-part"></th>
+                    <th scope="col" id="monday-header">Monday</th>
+                    <th id="tuesday-header">Tuesday</th>
+                    <th id="wednesday-header">Wednesday</th>
+                    <th id="thursday-header">Thursday</th>
+                    <th id="friday-header">Friday</th>
+                    <th id="saturday-header">Saturday</th>
+                    <th id="sunday-header">Sunday</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td headers="skipped-part"><strong style="color: #4A90E2;">Morning</strong></td>
+                    <td headers="monday-header">Morning Jog</td>
+                    <td headers="tuesday-header">Morning Jog</td>
+                    <td headers="wednesday-header" rowspan="3">Conference</td>
+                    <td headers="thursday-header">Reading</td>
+                    <td headers="friday-header">Gym</td>
+                    <td headers="saturday-header">Family Breakfast</td>
+                    <td headers="sunday-header">Rest</td>
+                </tr>
+                <tr>
+                    <td headers="skipped-part"><strong style="color: #4A90E2;">Afternoon</strong></td>
+                    <td headers="monday-header">Project Work</td>
+                    <td headers="tuesday-header">Team Meeting</td>
+                    <td headers="wednesday-header" colspan="2">Workshop</td>
+                    <td headers="friday-header">Shopping</td>
+                    <td headers="saturday-header">Picnic</td>
+                </tr>
+                <tr>
+                    <td headers="skipped-part"><strong style="color: #4A90E2;">Evening</strong></td>
+                    <td headers="monday-header">Reading</td>
+                    <td headers="tuesday-header">Cooking</td>
+                    <td headers="wednesday-header">Yoga Class</td>
+                    <td headers="thursday-header">Game Night</td>
+                    <td headers="friday-header">Party</td>
+                    <td headers="saturday-header">Planning for the Week</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="shopping-cart-table-container">
+        <!-- Shopping Cart Table -->
+        <table role="table" aria-labelledby="shopping-cart-table">
+            <caption id="shopping-cart-table">
+                Shopping Cart Table
+            </caption>
+
+            <thead>
+                <tr>
+                    <th id="item-name-header">Item Name</th>
+                    <th id="quantity-header">Quantity</th>
+                    <th id="price-header">Price per Item</th>
+                    <th id="total-price-header">Total Price</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td headers="item-name-header">Organic Cold-Pressed Avocado Oil, 500ml</td>
+                    <td headers="quantity-header">2</td>
+                    <td headers="price-header">$15.99</td>
+                    <td headers="total-price-header">$31.98</td>
+                </tr>
+                <tr>
+                    <td headers="item-name-header">Luxury Silk Sleep Mask with Adjustable Strap, Midnight Black</td>
+                    <td headers="quantity-header">1</td>
+                    <td headers="price-header">$45.75</td>
+                    <td headers="total-price-header">$45.75</td>
+                </tr>
+                <tr>
+                    <td headers="item-name-header">Eco-Friendly Reusable Bamboo Toothbrush Set, 6 Pack</td>
+                    <td headers="quantity-header">3</td>
+                    <td headers="price-header">$9.99</td>
+                    <td headers="total-price-header">$29.97</td>
+                </tr>
+                <tr>
+                    <td headers="item-name-header">Stainless Steel Insulated Coffee Mug, 16oz, Keeps Drinks Hot for 8 Hours</td>
+                    <td headers="quantity-header">4</td>
+                    <td headers="price-header">$18.50</td>
+                    <td headers="total-price-header">$74.00</td>
+                </tr>
+            </tbody>
+
+            <tfoot role="contentinfo">
+                <tr>
+                    <td><strong style="color: #fa5b4f;">Sum and Average</strong></td>
+                    <td><strong style="color: #fa5b4f;">10</strong></td>
+                    <td><strong style="color: #fa5b4f;">$22.81</strong></td>
+                    <td><strong style="color: #fa5b4f;">$181.70</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>
