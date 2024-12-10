@@ -31,14 +31,6 @@ th {
     text-align: left;
 }
 
-thead th:first-child {
-    border-top-left-radius: 10px;
-}
-
-thead th:last-child {
-    border-top-right-radius: 10px;
-}
-
 tbody {
     background-color: #FFFFFF;
     color: #333333;
@@ -61,24 +53,12 @@ tr {
     border: 0.1px solid #601ecba8;
 }
 
-tbody tr:first-child {
-    border-top-left-radius: 10px;
-}
-
 tbody td:first-child {
     width: 15px;
 }
 
 input:hover {
     cursor: pointer;
-}
-
-.last-right-item {
-    border-bottom-right-radius: 10px;
-}
-
-.last-left-item {
-    border-bottom-left-radius: 10px;
 }
 
 .checked {
