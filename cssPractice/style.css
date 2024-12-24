@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    gap: 20px;
+}
+
+section {
+    width: 900px;
+}
+
+header, nav ul{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 250px;
+}
+
+header ul {
+    gap: 40px;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+nav li {
+    list-style: none;
+    color: darkred;
+}
+
+.project, .project1, .project2 {
+    padding: 10px;
+    margin: 20px;
+    border: 1px solid #ccc;
+}
+
+.project {
+    background-color: #f0f8ff; /* Light blue */
+}
+
+.project1 {
+    background-color: #ffebcd; /* Blanched almond */
+}
+
+.project2 {
+    background-color: #e6ffe6; /* Light green */
+}
+
+#about {
+    background-color: lightgray;
+}
+
+.about-description {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.text {
+    display: grid;
+}
+
+#skills {
+    background-color: lightyellow;
+}
+
+#skills li {
+    font-weight: bold;
+    list-style: none;
+}
+
+#skills li, #skills h2 {
+    margin-left: 15px;
+}
+
+#my-projects h3{
+    color: darkblue;
+}
+
+img[src="https://via.placeholder.com/150"] {
+    border: 2px sold black;
+    border-radius: 50%;
+}
+
+nav li:hover {
+    color: orange;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#skills li:before{
+    content: "⭐ ";
+}
+
+
+

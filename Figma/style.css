@@ -1,0 +1,229 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gilroy-Regular', sans-serif;                   
+}
+
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+header nav {
+    padding: 15px;
+}
+
+header nav ul a{
+    margin-left: 55px;
+    text-decoration: none;
+    color: white;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+}
+.introductory {
+    background-image: url("images/rec.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1094px;
+    text-align: center;
+    color: white;
+}
+
+.search-division {
+    width: 861px;
+    margin: auto;
+    margin-top: 150px;
+}
+.search-division h2 {
+    margin: 30px; 
+    font-size: 70px;
+}
+
+.search-division p {
+    margin: auto;
+    width: 62%;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.search-division input {
+    width: 344px;
+    height: 56px;
+    border-radius: 30px;
+    background-color: hsla(0, 0%, 100%, 0.1);
+    margin-top: 25px;
+
+}
+
+
+/* items section */
+
+.items-section {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+    padding: 20px;
+    gap: 35px;
+}
+
+.items-section h2 {
+    margin-right: 50px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 42px;
+}
+
+.items-section .item h3 {
+    font-size: 24px;
+}
+
+.items-section .item h3 p a {
+    padding: 20px 20px 0px 0;
+
+}
+
+.product-section {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: #F7F7F7;
+    margin-bottom: 50px;
+}
+
+.product-section h2 {
+    margin: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    font-size: 42px;
+}
+
+.buttons-container {
+    display: flex;
+    background-color: #EEEEEE;
+    width: 389px;
+    height: 52px;
+    margin: auto;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 25px;
+
+}
+
+.buttons-container button {
+    width: 75%;
+    height: 85%;
+    border-radius: 25px;
+    background-color: #EEEEEE;
+    border: none;
+}
+
+.buttons-container button:hover {
+    background-color: white;
+}
+
+.products-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    text-align: left;
+    height: 592px;
+    padding-bottom: 50px;
+}
+
+.products-list .product .info div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-position: bottom;
+}
+
+.products-list .product .info {
+    background-color: #FFFFFF;
+    text-align: left;
+    justify-content: left;
+    align-items: left;
+    padding: 10px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-position: bottom;
+}
+
+.products-list .product div button{
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.products-list .product{
+    margin-top: 40px;
+    text-align: left;
+    left:  2.5rem;
+}
+
+.product img {
+    width: 220px;
+    height: 290px;
+}
+
+.first-article {
+    margin-top: 200px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 70px;
+}
+
+.article {
+    text-align: left;
+    width: 556px;
+}
+
+.article p:first-child {
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 15px;
+    margin: 10px;
+}
+
+.article p {
+    font-size: 18px;
+    padding: 15px;
+    margin: 10px;
+}
+
+.article h2 {
+    text-transform: capitalize;
+    font-size: 42px;
+    padding: 15px;
+    margin: 10px;
+}
+
+.second-article {
+    margin-top: 200px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 70px;
+}
+
+.second-article .images-container {
+    display: flex;
+    align-items: center;
+}
