@@ -65,6 +65,14 @@ form .login-button {
 
 }
 
+form .login-button:hover {
+    cursor: pointer;
+    background-color: #cbcbcb;
+}
+
+form .login-button:active {
+    background-color: white;
+}
 
 /*  shapes styling*/
 .background {
