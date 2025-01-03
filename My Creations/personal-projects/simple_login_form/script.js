@@ -16,7 +16,7 @@ function doSomething(event) {
     if (loginValue === "nukri" && passValue === "nukri") {
         message.style.color = 'green';
         message.innerHTML = "Hello, Nukri!";
-    } else if (loginValue === "" || passValue === "") {
+    } else if (loginValue === "" && passValue === "") {
         message.style.color = 'yellow';
         message.innerHTML = "Tip: don't play with the button. Enter the data!";
     } else if (loginValue !== "nukri" || passValue !== "nukri") {
