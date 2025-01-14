@@ -1,0 +1,84 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: grey;
+}
+
+input, select, textarea, .order{
+    padding: 8px 0;
+    margin-bottom: 20px;
+    width: 48%;
+    padding-left: 5px;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+textarea {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-container {
+    width: 480px;
+    height: auto;
+    border-radius: 25px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 60px;
+}
+
+.form-container h1 {
+    margin-bottom: 40px;
+}
+
+.orders-wrapper {
+    display: flex;
+    /* gap: 20px; */
+}
+
+.order {
+    display: flex;
+    gap: 5px;
+}
+
+.order input {
+    width: 20px;
+}
+
+.full-card-input, .date-input, .company-information, .locations {
+    width: 100%;
+}
+
+.description {
+    height: 80px;
+}
+.full-name {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-numbers{
+    display: flex;
+    justify-content: space-between;
+}
+.phone-inputs input:last-child {
+    width: 300px;
+}
+
+.start-numbers{
+    width: 15%;
+    height: 34px;
+}
+
+
