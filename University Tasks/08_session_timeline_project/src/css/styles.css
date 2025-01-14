@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    align-content: center;
+}
+
+nav ul {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+
+.container {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container h1 , .container nav{
+    margin-top: 10px;
+}
+
+ul .tab-nav-item {
+    color: #659F7C;
+    border-bottom: 2px solid #659F7C;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+ul .tab-active {
+    color: #D74E12;
+    border-bottom: 2px solid #D74E12;
+}
+
+.timeline-wrapper{
+    height: 100vh;
+    width: 4000px;
+    align-content: center;
+}
+
+.timeline{
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background-color: #D74E12;
+    display: flex;
+    align-items: center;
+}
+
+.card-wrapper {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    left: 100px;
+    /* padding: 5px; */
+}
+
+.card-title {
+    color: #659F7C;
+    position: absolute;
+    top: -30px;
+    left: 28px;
+
+}
+.card-icon {
+    position: absolute;
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    left: 34px;
+    background-color: white;
+    border: 2px solid #D74E12;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.virus-icon {
+    position: absolute;
+    width: 112px;
+    height: 112px;
+    bottom: 74px;
+    left: 120px;
+    border-radius: 50%;
+    border: 4px solid #D74E12;
+    background-image: url("/img/virus-icon.png");
+    background-repeat: no-repeat;
+}
+
+.line-representation {
+    position: absolute;
+    border-left: 1px solid #659F7C;
+    border-bottom: 1px solid #659F7C;
+    height: 65%;
+    width: 15%;
+    left: 80px;
+    bottom: 134px;
+}
+
+.line-representation::after{
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #659F7C;
+    top: -8px;
+    left: -4px;
+}
+
+.text-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.information {
+    position: absolute;
+    width: 176px;
+    height: auto;
+    right: 96px;
+    top: 40px;
+    gap: 80px;
+    font-size: 13px;
+}
+.year-wrapper{
+    position: absolute;
+    left: 20px;
+    top: 40px;
+}
+
+.year-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 0px;
+    font-size: 13px;
+}
+
+.numbers {
+    font-size: 34px;
+}
+
+.card-wrapper:nth-child( even ) .virus-icon {
+    background-image: url("/img/blue-virus-icon.png");
+    background-repeat: no-repeat;
+}
+
+.card-wrapper:nth-child( even ) {
+    transform: rotate(180deg) scale(-1, 1);
+}
+
+.card-wrapper:nth-child( even ) .information, .card-wrapper:nth-child( even ) .year-wrapper, .card-wrapper:nth-child( even ).virus-icon, .card-wrapper:nth-child( even ) .card-title, .card-wrapper:nth-child( even ) .card-icon {
+    transform: rotateX(180deg);
+}
+
+.card-wrapper *:not(.card-icon){
+    opacity: 0.5;
+}
+
+.actives *:not(.card-icon){
+    opacity: 1.0;
+}
+
+#child {
+    min-width: 144vw;
+    display: flex;
+}
+
+#women {
+    min-width: 130vw;
+    display: none;
+}
+
+#men {
+    min-width: 104vw;
+    display: none;
+}
+
