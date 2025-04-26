@@ -1,0 +1,8 @@
+.alert-btn{
+    padding: 15px 25px;
+    border-radius: 25px;
+    border: none;
+    background-color: red;
+    font-weight: bold;
+    color: white;
+}
