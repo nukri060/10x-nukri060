@@ -1,10 +1,12 @@
 // Variables
-$bg-color: #222;
-$text-color: #fff;
-$accent-color: #fff;
-$button-bg: #fff;
-$button-text: #000;
-$font-main: 'Press Start 2P', monospace;
+$bg-color: #1a1a1a;
+$text-color: #ffffff;
+$accent-color: #00ff9d;
+$button-bg: #00ff9d;
+$button-text: #1a1a1a;
+$font-main: 'Inter', sans-serif;
+$card-bg: rgba(255, 255, 255, 0.05);
+$border-radius: 12px;
 
 // Base styles
 body {
@@ -14,16 +16,24 @@ body {
   text-align: center;
   margin: 0;
   padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 // Header styles
 header {
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
+  width: 100%;
+  max-width: 800px;
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 2rem;
+    color: $accent-color;
   }
 
   .again {
@@ -33,67 +43,211 @@ header {
     background-color: $button-bg;
     color: $button-text;
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1.5rem;
     border: none;
     cursor: pointer;
+    border-radius: $border-radius;
+    font-weight: 600;
   }
 
   .range {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
+    color: rgba($text-color, 0.7);
   }
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-
+// Number display
 .number {
-  background-color: #eee;
-  color: #222;
-  font-size: 3rem;
-  width: 10rem;
-  padding: 1rem;
-  margin: 0 auto 2rem;
+  font-size: 4rem;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  background: $card-bg;
+  color: $accent-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.guess {
-  width: 10rem;
-  padding: 0.5rem;
-  font-size: 1.5rem;
-  text-align: center;
-  border: 2px solid #eee;
-  background-color: transparent;
-  color: #eee;
-  margin-bottom: 1rem;
+// Main container
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
 
-  &::-webkit-inner-spin-button,
-  &::-webkit-outer-spin-button {
+// Left section (Input)
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background: $card-bg;
+  padding: 2rem;
+  border-radius: $border-radius;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  input {
+    width: 200px;
+    height: 60px;
+    font-size: 2rem;
+    text-align: center;
+    font-family: $font-main;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    color: $text-color;
+    transition: all 0.3s;
+    outline: none;
+    border-radius: $border-radius;
+    padding: 0.5rem;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
       -webkit-appearance: none;
       margin: 0;
+    }
+
+    &:focus {
+      border-color: $accent-color;
+    }
+
+    &::placeholder {
+      color: rgba($text-color, 0.3);
+    }
+  }
+
+  button {
+    background-color: $button-bg;
+    color: $button-text;
+    font-family: $font-main;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: $border-radius;
+    font-weight: 600;
   }
 }
 
-.check {
+// Right section (Game Info)
+.right {
+  text-align: left;
+  background: $card-bg;
+  padding: 2rem;
+  border-radius: $border-radius;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    color: rgba($text-color, 0.9);
+  }
+
+  .score,
+  .highscore {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: $accent-color;
+  }
+}
+
+// Common button styles
+button {
+  background-color: $button-bg;
+  color: $button-text;
+  font-family: $font-main;
   padding: 0.5rem 1rem;
-  font-size: 1.2rem;
-  background-color: #eee;
-  color: #222;
+  font-size: 1rem;
   border: none;
   cursor: pointer;
-  margin-bottom: 1rem;
+  border-radius: $border-radius;
+  font-weight: 600;
 }
 
-.message {
-  font-size: 1.5rem;
-  margin: 1rem 0;
+// Responsive styles
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  header {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .again,
+    .range {
+      font-size: 0.8rem;
+      padding: 0.6rem 1.2rem;
+    }
+  }
+
+  .number {
+    font-size: 3rem;
+    width: 100px;
+    height: 100px;
+  }
+
+  .container {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .left {
+    width: 100%;
+    max-width: 400px;
+    
+    input {
+      width: 100%;
+      max-width: 200px;
+      height: 50px;
+      font-size: 1.8rem;
+    }
+  }
+
+  .right {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
 }
 
-.score,
-.highscore {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
+@media (max-width: 480px) {
+  header {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .again,
+    .range {
+      font-size: 0.7rem;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .number {
+    font-size: 2.5rem;
+    width: 80px;
+    height: 80px;
+  }
+
+  .left {
+    padding: 1.5rem;
+    
+    input {
+      height: 45px;
+      font-size: 1.5rem;
+    }
+  }
 }
