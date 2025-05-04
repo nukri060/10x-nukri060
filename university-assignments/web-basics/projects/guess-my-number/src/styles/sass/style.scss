@@ -10,7 +10,7 @@ $border-radius: 12px;
 
 // Base styles
 body {
-  background-color: $bg-color;
+  background: linear-gradient(135deg, $bg-color, darken($bg-color, 5%));
   color: $text-color;
   font-family: $font-main;
   text-align: center;
@@ -34,13 +34,17 @@ header {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     color: $accent-color;
+    background: linear-gradient(45deg, $accent-color, #00b8ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .again {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    background-color: $button-bg;
+    background: linear-gradient(45deg, $button-bg, #00b8ff);
     color: $button-text;
     font-size: 1rem;
     padding: 0.8rem 1.5rem;
@@ -48,6 +52,12 @@ header {
     cursor: pointer;
     border-radius: $border-radius;
     font-weight: 600;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
   }
 
   .range {
@@ -127,7 +137,7 @@ header {
   }
 
   button {
-    background-color: $button-bg;
+    background: linear-gradient(45deg, $button-bg, #00b8ff);
     color: $button-text;
     font-family: $font-main;
     padding: 1rem 2rem;
@@ -136,6 +146,12 @@ header {
     cursor: pointer;
     border-radius: $border-radius;
     font-weight: 600;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
   }
 }
 
@@ -164,7 +180,7 @@ header {
 
 // Common button styles
 button {
-  background-color: $button-bg;
+  background: linear-gradient(45deg, $button-bg, #00b8ff);
   color: $button-text;
   font-family: $font-main;
   padding: 0.5rem 1rem;
@@ -173,6 +189,12 @@ button {
   cursor: pointer;
   border-radius: $border-radius;
   font-weight: 600;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
 }
 
 // Responsive styles
