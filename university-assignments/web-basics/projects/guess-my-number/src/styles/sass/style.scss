@@ -1,16 +1,39 @@
 // Variables
-$bg-color: #1a1a1a;
+$bg-color: #0a0a0a;
 $text-color: #ffffff;
 $accent-color: #00ff9d;
+$neon-blue: #00b8ff;
+$neon-purple: #9d00ff;
 $button-bg: #00ff9d;
 $button-text: #1a1a1a;
 $font-main: 'Inter', sans-serif;
-$card-bg: rgba(255, 255, 255, 0.05);
-$border-radius: 12px;
+$card-bg: rgba(255, 255, 255, 0.03);
+$border-radius: 16px;
+$box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+$transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$neon-glow: 0 0 10px rgba($accent-color, 0.5),
+            0 0 20px rgba($accent-color, 0.3),
+            0 0 30px rgba($accent-color, 0.1);
+
+// Mixins
+@mixin neon-border {
+  border: 2px solid rgba($accent-color, 0.3);
+  box-shadow: 0 0 10px rgba($accent-color, 0.2),
+              inset 0 0 10px rgba($accent-color, 0.1);
+}
+
+@mixin glass-effect {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
 // Base styles
 body {
-  background: linear-gradient(135deg, $bg-color, darken($bg-color, 5%));
+  background: radial-gradient(circle at center, 
+              darken($bg-color, 2%), 
+              $bg-color);
   color: $text-color;
   font-family: $font-main;
   text-align: center;
@@ -21,6 +44,22 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 20%, rgba($neon-blue, 0.1), transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba($neon-purple, 0.1), transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
 }
 
 // Header styles
@@ -29,22 +68,37 @@ header {
   margin-bottom: 3rem;
   width: 100%;
   max-width: 800px;
-
+  
   h1 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: $accent-color;
-    background: linear-gradient(45deg, $accent-color, #00b8ff);
+    background: linear-gradient(45deg, $accent-color, $neon-blue);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    text-shadow: $neon-glow;
+    letter-spacing: 2px;
+    font-weight: 800;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, $accent-color, transparent);
+      box-shadow: $neon-glow;
+    }
   }
 
   .again {
     position: absolute;
     top: 1rem;
     left: 1rem;
-    background: linear-gradient(45deg, $button-bg, #00b8ff);
+    background: linear-gradient(45deg, $accent-color, $neon-blue);
     color: $button-text;
     font-size: 1rem;
     padding: 0.8rem 1.5rem;
@@ -52,11 +106,14 @@ header {
     cursor: pointer;
     border-radius: $border-radius;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: $transition;
+    box-shadow: 0 0 15px rgba($accent-color, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
     
     &:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 0 25px rgba($accent-color, 0.5);
     }
   }
 
@@ -66,6 +123,10 @@ header {
     right: 1rem;
     font-size: 0.9rem;
     color: rgba($text-color, 0.7);
+    @include glass-effect;
+    padding: 0.5rem 1rem;
+    border-radius: $border-radius;
+    box-shadow: 0 0 10px rgba($neon-blue, 0.1);
   }
 }
 
@@ -75,14 +136,49 @@ header {
   width: 120px;
   height: 120px;
   margin: 0 auto;
-  background: $card-bg;
+  @include glass-effect;
   color: $accent-color;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: $border-radius;
   margin-bottom: 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  @include neon-border;
+  transition: $transition;
+  text-shadow: $neon-glow;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba($accent-color, 0.1),
+      transparent
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+  }
+  
+  &:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 0 30px rgba($accent-color, 0.3);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
 }
 
 // Main container
@@ -94,6 +190,7 @@ header {
   margin-top: 2rem;
   width: 100%;
   max-width: 800px;
+  perspective: 1000px;
 }
 
 // Left section (Input)
@@ -102,10 +199,17 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  background: $card-bg;
+  @include glass-effect;
   padding: 2rem;
   border-radius: $border-radius;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: $box-shadow;
+  transition: $transition;
+  transform-style: preserve-3d;
+  
+  &:hover {
+    transform: translateY(-5px) rotateX(5deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  }
 
   input {
     width: 200px;
@@ -113,13 +217,14 @@ header {
     font-size: 2rem;
     text-align: center;
     font-family: $font-main;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba($accent-color, 0.3);
     color: $text-color;
-    transition: all 0.3s;
+    transition: $transition;
     outline: none;
     border-radius: $border-radius;
     padding: 0.5rem;
+    box-shadow: inset 0 0 10px rgba($accent-color, 0.1);
 
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
@@ -129,6 +234,8 @@ header {
 
     &:focus {
       border-color: $accent-color;
+      box-shadow: 0 0 20px rgba($accent-color, 0.3),
+                  inset 0 0 10px rgba($accent-color, 0.2);
     }
 
     &::placeholder {
@@ -137,7 +244,7 @@ header {
   }
 
   button {
-    background: linear-gradient(45deg, $button-bg, #00b8ff);
+    background: linear-gradient(45deg, $accent-color, $neon-blue);
     color: $button-text;
     font-family: $font-main;
     padding: 1rem 2rem;
@@ -146,11 +253,41 @@ header {
     cursor: pointer;
     border-radius: $border-radius;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: $transition;
+    box-shadow: 0 0 15px rgba($accent-color, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: 0.5s;
+    }
     
     &:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 0 25px rgba($accent-color, 0.5);
+      
+      &::before {
+        left: 100%;
+      }
+    }
+    
+    &:active {
+      transform: translateY(0) scale(0.95);
+      box-shadow: 0 0 10px rgba($accent-color, 0.3);
     }
   }
 }
@@ -158,15 +295,33 @@ header {
 // Right section (Game Info)
 .right {
   text-align: left;
-  background: $card-bg;
+  @include glass-effect;
   padding: 2rem;
   border-radius: $border-radius;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: $box-shadow;
+  transition: $transition;
+  transform-style: preserve-3d;
+  
+  &:hover {
+    transform: translateY(-5px) rotateX(-5deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  }
 
   p {
     margin: 1rem 0;
     font-size: 1.1rem;
     color: rgba($text-color, 0.9);
+    line-height: 1.6;
+    position: relative;
+    padding-left: 1rem;
+    
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: $accent-color;
+      text-shadow: $neon-glow;
+    }
   }
 
   .score,
@@ -175,12 +330,14 @@ header {
     align-items: center;
     gap: 0.5rem;
     color: $accent-color;
+    font-weight: 600;
+    text-shadow: $neon-glow;
   }
 }
 
 // Common button styles
 button {
-  background: linear-gradient(45deg, $button-bg, #00b8ff);
+  background: linear-gradient(45deg, $accent-color, $neon-blue);
   color: $button-text;
   font-family: $font-main;
   padding: 0.5rem 1rem;
@@ -189,11 +346,19 @@ button {
   cursor: pointer;
   border-radius: $border-radius;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: $transition;
+  box-shadow: 0 0 15px rgba($accent-color, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
   
   &:hover {
-    opacity: 0.9;
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 25px rgba($accent-color, 0.5);
+  }
+  
+  &:active {
+    transform: translateY(0) scale(0.95);
+    box-shadow: 0 0 10px rgba($accent-color, 0.3);
   }
 }
 
