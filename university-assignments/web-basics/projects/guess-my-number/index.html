@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,13 +9,19 @@
 </head>
 
 <body>
+    <header>
+        <button class="again">Again!</button>
+        <p class="range">(Between 1 and 20)</p>
+    </header>
+    
     <h1>Guess My Number!</h1>
-    <p class="number">?</p>
-    <input type="number" class="guess" />
+    <div class="number">?</div>
+    <input type="number" class="guess" min="1" max="20" />
     <button class="check">Check!</button>
     <p class="message">Start guessing...</p>
     <p class="score">Score: <span>20</span></p>
-    <script src="./src/js/script.js"></script>
+    <p class="highscore">Highscore: <span>0</span></p>
+    <script src="src/js/script.js"></script>
 </body>
 
 </html>
